@@ -1,12 +1,12 @@
 <?php
 
-namespace Src\Util;
+namespace Math\Util;
 
 use Exception;
-use Src\Consts\Errormsg;
-use Src\Rules\Maxint;
-use Src\Rules\Minint;
-use Src\Rules\Type;
+use Math\Consts\Errormsg;
+use Math\Rules\Maxint;
+use Math\Rules\Minint;
+use Math\Rules\Type;
 
 class Validator
 {

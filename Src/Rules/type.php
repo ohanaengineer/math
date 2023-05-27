@@ -1,8 +1,8 @@
 <?php
 
-namespace Src\Rules;
+namespace Math\Rules;
 
-use Src\Consts\Errormsg;
+use Math\Consts\Errormsg;
 use Exception;
 
 trait Type

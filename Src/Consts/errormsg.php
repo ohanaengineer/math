@@ -1,6 +1,6 @@
 <?php
 
-namespace Src\Consts;
+namespace Math\Consts;
 
 
 class Errormsg

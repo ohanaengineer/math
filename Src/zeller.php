@@ -1,9 +1,9 @@
 <?php
 
-namespace Src;
+namespace Math;
 
 use Exception;
-use Src\Util\Validator;
+use Math\Util\Validator;
 
 class Zeller
 {
