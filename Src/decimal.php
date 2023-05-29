@@ -5,9 +5,10 @@ namespace Math;
 use Exception;
 use Math\Util\Validator;
 
-class Decimal {
+class Decimal
+{
     private Validator $validator;
-    private array $number =[
+    private array $number = [
         0 => "0",
         1 => "1",
         2 => "2",
@@ -45,9 +46,7 @@ class Decimal {
         34 => "Y",
         35 => "Z",
     ];
-    private $v;
-    private $t;
-    private $f;
+    private int $v, $t, $f;
     public function __construct()
     {
         $this->validator = new Validator;
@@ -61,19 +60,18 @@ class Decimal {
      * @param integer $from 変換元の進数(default:10進数)
      * @return void
      */
-    public function exec(int|string $val, int $to = 2 ,int $from = 10){
-        $this->v = $val;
-        $this->t = $to;
-        $this->f = $from;
-        try{
+    public function calc(int|string $val, int $to = 2, int $from = 10)
+    {
+        [$this->v, $this->t, $this->f] = [$val, $to, $from];
+        try {
             $this->validation();
             //変換元が10進数でない場合、一旦10進数に変換する
-            if($from !== 10){
+            if ($from !== 10) {
                 $val = $this->naryToDecimal($val, $from);
             }
             //10進数から、変換先の進数に変換する
             //10進数→10進数は変換必要ないのでそのまま
-            if($to !== 10){
+            if ($to !== 10) {
                 return $this->decimalToNary($val, $to);
             }
             return $val;
@@ -81,33 +79,35 @@ class Decimal {
             return $e->getMessage();
         }
     }
-    private function decimalToNary(int $val,int $to){
+    private function decimalToNary(int $val, int $to)
+    {
         $result = "";
-        while( $val > 0 ){
+        while ($val > 0) {
             $q = $val % $to;
             $result = $this->number[$q] . $result;
             $val = (int)($val / $to);
         }
         return $result;
     }
-    private function naryToDecimal(string $val,int $to){
+    private function naryToDecimal(string $val, int $to)
+    {
         $num = 0;
         $len = strlen($val);
-        for ($i = 0; $i < $len; $i++){
-            $tmp = array_search($val[$i],$this->number);
-            if($tmp >= $to){
+        for ($i = 0; $i < $len; $i++) {
+            $tmp = array_search($val[$i], $this->number);
+            if ($tmp >= $to) {
                 throw new Exception("{$to}進数で使用できない文字が含まれています:{$val[$i]}");
             }
-            $num += $tmp *($to ** ($len -1 - $i));
+            $num += $tmp * ($to ** ($len - 1 - $i));
         }
         return $num;
-
     }
-    private function validation(){
-        if($this->f === 10){
+    private function validation()
+    {
+        if ($this->f === 10) {
             $this->validator->exec($this->v, ['isInt' => null], "10進数の場合、変換対象");
         }
-        $rule = ['minT' => 1,'maxT'=>36];
+        $rule = ['minT' => 1, 'maxT' => 36];
         $this->validator->exec($this->t, $rule, "変換先の進数");
         $this->validator->exec($this->f, $rule, "変換元の進数");
     }
