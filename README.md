@@ -10,7 +10,7 @@ calc() は全て$thisを返します。
 <?php
 use Math\Zeller;
 
-echo (new Zeller)->calc(2022,4,14)->h;
+echo (new Zeller)->calc(2022,4,14)->getZeller();
 ```
 
 # 目次 <!-- omit in toc -->
