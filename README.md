@@ -15,14 +15,17 @@ echo (new Zeller)->calc(2022,4,14)->getZeller();
 
 # 目次 <!-- omit in toc -->
 - [d](#d)
+- [1. Decimal 進数変換](#1-decimal-進数変換)
   - [calc](#calc)
   - [getDecimal](#getdecimal)
 - [h](#h)
+- [1.　Heron ヘロンの公式](#1heron-ヘロンの公式)
   - [calc](#calc-1)
   - [getHeron](#getheron)
   - [getAngle](#getangle)
   - [getHigh](#gethigh)
 - [t](#t)
+- [1. Triangle 三角関数](#1-triangle-三角関数)
   - [calc](#calc-2)
   - [getTriangle](#gettriangle)
   - [getRad](#getrad)
@@ -30,15 +33,17 @@ echo (new Zeller)->calc(2022,4,14)->getZeller();
   - [getSin](#getsin)
   - [getTan](#gettan)
 - [p](#p)
+- [1. Prime 素数判定](#1-prime-素数判定)
   - [calc](#calc-3)
   - [getPrime](#getprime)
 - [z](#z)
+- [1. Zeller ツェラーの公式](#1-zeller-ツェラーの公式)
   - [calc](#calc-4)
   - [getZeller](#getzeller)
   - [getDate(今のところ日本語のみ対応)](#getdate今のところ日本語のみ対応)
 
 # d
-1. Decimal 進数変換
+# 1. Decimal 進数変換
 n進数の任意の数値、文字からm進数に変換します
 ## calc
 - 引数 1.val(変換値) 2:to(変換先のm進数) 3.from(変換元のn進数)
@@ -48,7 +53,7 @@ n進数の任意の数値、文字からm進数に変換します
 - 戻り値 : 変換後の数値・文字列
 
 # h
-1.　Heron ヘロンの公式
+# 1.　Heron ヘロンの公式
 ## calc
 - 引数 : 1.辺a 2.辺b 3.辺c
 ## getHeron
@@ -61,7 +66,7 @@ n進数の任意の数値、文字からm進数に変換します
 - 戻り値 : A,B,Cから対角 もしくは辺a,b,cから対辺までの高さ
 
 # t
-1. Triangle 三角関数
+# 1. Triangle 三角関数
 ## calc
 - 引数 : 1.辺a 2.辺b 3.辺c
 ## getTriangle
@@ -82,7 +87,7 @@ n進数の任意の数値、文字からm進数に変換します
   - ただし、角A,B,Cが90の倍数角の場合はException
 
 # p
-1. Prime 素数判定
+# 1. Prime 素数判定
 ## calc
 - 引数 : n (2以上の自然数)
 ## getPrime
@@ -90,7 +95,7 @@ n進数の任意の数値、文字からm進数に変換します
 - 戻り値 : bool (nが素数か否か)
 
 # z
-1. Zeller ツェラーの公式
+# 1. Zeller ツェラーの公式
 y年 m月 d日 の値から、曜日を返します。
 ## calc
 - 引数 1.y(年) 2.m (月) 3.d (日)
