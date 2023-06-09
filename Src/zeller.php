@@ -29,12 +29,11 @@ class Zeller
                 floor($y / 400) +
                 floor(26 * ($m + 1) / 10);
             $this->h %= 7;
-            return $this;
         } catch (Exception $e) {
             $this->error = true;
             echo $e->getMessage();
-            return $this;
         }
+        return $this;
     }
     public function getZeller()
     {

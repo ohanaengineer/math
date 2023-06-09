@@ -26,12 +26,12 @@ class Divisor
                     return false;
                 }
             }
-            return true;
+            return $this;
         } catch (Exception $e) {
             $this->error = true;
             echo $e->getMessage();
-            return $this;
         }
+        return $this;
     }
 
     // ------------------------private functions

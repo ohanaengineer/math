@@ -31,12 +31,11 @@ class prime
                 }
             }
             $this->check = true;
-            return $this;
         } catch (Exception $e) {
             $this->error = true;
             echo $e->getMessage();
-            return $this;
         }
+        return $this;
     }
     public function getPrime(){
         if($this->error){

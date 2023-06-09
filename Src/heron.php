@@ -24,12 +24,11 @@ class heron
             $this->getHerons();
             $this->getHighs();
             $this->getAngles();
-            return $this;
         } catch (Exception $e) {
             $this->error = true;
             echo $e->getMessage();
-            return $this;
         }
+        return $this;
     }
     public function getHeron(){
         if($this->error){

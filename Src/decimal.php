@@ -76,12 +76,11 @@ class Decimal
             if ($to !== 10) {
                 $this->v = $this->decimalToNary($this->v, $to);
             }
-            return $this;
         } catch (Exception $e) {
             $this->error = true;
             echo $e->getMessage();
-            return $this;
         }
+        return $this;
     }
     public function getDecimal(){
         if($this->error){

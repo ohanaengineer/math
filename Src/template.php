@@ -19,8 +19,10 @@ class template
         try {
             $this->validation();
         } catch (Exception $e) {
-            return $e->getMessage();
+            $this->error = true;
+            echo $e->getMessage();
         }
+        return $this;
     }
 
     // ------------------------private functions

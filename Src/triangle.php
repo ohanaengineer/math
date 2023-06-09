@@ -24,12 +24,11 @@ class Triangle
             $this->A = $heron->getAngle('A');
             $this->B = $heron->getAngle('B');
             $this->C = $heron->getAngle('C');
-            return $this;
         } catch (Exception $e) {
             $this->error = true;
             echo $e->getMessage();
-            return $this;
         }
+        return $this;
     }
     public function getTriangle(string $side){
         if($this->error){
