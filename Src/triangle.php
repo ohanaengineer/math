@@ -9,7 +9,8 @@ use Math\Heron;
 class Triangle
 {
     private Validator $validator;
-    public int|float $a, $b, $c, $A, $B, $C;
+    private int|float $a, $b, $c, $A, $B, $C;
+    private bool $error = false;
     public function __construct()
     {
         $this->validator = new Validator;
@@ -20,20 +21,34 @@ class Triangle
         try {
             $this->validation();
             $heron = (new Heron)->calc($a, $b, $c);
-            $this->A = $heron->angles['A'];
-            $this->B = $heron->angles['B'];
-            $this->C = $heron->angles['C'];
+            $this->A = $heron->getAngle('A');
+            $this->B = $heron->getAngle('B');
+            $this->C = $heron->getAngle('C');
             return $this;
         } catch (Exception $e) {
-            return $e->getMessage();
+            $this->error = true;
+            echo $e->getMessage();
+            return $this;
         }
+    }
+    public function getTriangle(string $side){
+        if($this->error){
+            return;
+        }
+        return $this->{$side};
     }
     public function getCos(string $side)
     {
+        if($this->error){
+            return;
+        }
         return cos($this->{$side});
     }
     public function getSin(string $side)
     {
+        if($this->error){
+            return;
+        }
         return sin($this->{$side});
     }
     public function getTan(string $side)
@@ -49,8 +64,13 @@ class Triangle
     }
     public function getRad(string $side)
     {
+        if($this->error){
+            return;
+        }
         return deg2rad($this->{$side});
     }
+
+    // ------------------------private functions
     private function validation()
     {
         $rule_a = ['minT' => 0, 'maxT' => ($this->b + $this->c)];

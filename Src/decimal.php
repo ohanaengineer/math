@@ -46,7 +46,9 @@ class Decimal
         34 => "Y",
         35 => "Z",
     ];
-    private int $v, $t, $f;
+    private int $t, $f;
+    private int|string $v;
+    private bool $error = false;
     public function __construct()
     {
         $this->validator = new Validator;
@@ -67,18 +69,31 @@ class Decimal
             $this->validation();
             //変換元が10進数でない場合、一旦10進数に変換する
             if ($from !== 10) {
-                $val = $this->naryToDecimal($val, $from);
+                $this->v = $this->naryToDecimal($this->v, $from);
             }
             //10進数から、変換先の進数に変換する
             //10進数→10進数は変換必要ないのでそのまま
             if ($to !== 10) {
-                return $this->decimalToNary($val, $to);
+                $this->v = $this->decimalToNary($this->v, $to);
             }
-            return $val;
+            return $this;
         } catch (Exception $e) {
+            $this->error = true;
+            echo $e->getMessage();
+            return $this;
+        }
+    }
+    public function getDecimal(){
+        if($this->error){
+            return;
+        }
+        try{
+            return $this->v;
+        }catch(Exception $e){
             return $e->getMessage();
         }
     }
+    // ------------------------private functions
     private function decimalToNary(int $val, int $to)
     {
         $result = "";

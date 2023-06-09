@@ -8,8 +8,9 @@ use Math\Util\Validator;
 class heron
 {
     private Validator $validator;
-    public int|float $surface, $a, $b, $c;
-    public array $angles, $high;
+    private int|float $surface, $a, $b, $c;
+    private array $angles, $high;
+    private bool $error = false;
     public function __construct()
     {
         $this->validator = new Validator;
@@ -20,29 +21,68 @@ class heron
         [$this->a, $this->b, $this->c] = [$a, $b, $c];
         try {
             $this->validation();
-            $this->getHeron();
+            $this->getHerons();
             $this->getHighs();
             $this->getAngles();
             return $this;
         } catch (Exception $e) {
-            return $e->getMessage();
+            $this->error = true;
+            echo $e->getMessage();
+            return $this;
         }
     }
-    private function getHeron()
+    public function getHeron(){
+        if($this->error){
+            return;
+        }
+        return $this->surface;
+    }
+
+    public function getHigh(string $side){
+        if($this->error){
+            return;
+        }
+        try{
+            if(!in_array($side,['a','b','c'])){
+                throw new Exception('辺はa,b,cしかありません');
+            }
+            return $this->high[$side];
+        }catch(Exception $e){
+            echo $e->getMessage();
+            return $this;
+        }
+    }
+    public function getAngle(string $angle){
+        if($this->error){
+            return;
+        }
+        $angle = mb_strtoupper($angle);
+        try{
+            if(!in_array($angle,['A','B','C'])){
+                throw new Exception('角はA,B,Cしかありません');
+            }
+            return $this->angles[$angle];
+        }catch(Exception $e){
+            return $e->getPrevious();
+        }
+    }
+
+    // ------------------------private functions
+    private function getHerons()
     {
         $s = ($this->a + $this->b + $this->c) / 2;
         $tmp = $s * ($s - $this->a) * ($s - $this->b) * ($s - $this->c);
         $this->surface = sqrt($tmp);
     }
     // $subject = 'a' or 'b' or 'c'
-    // 選択した辺に対する角A,B,Cの高さを取得します
-    private function getHigh(string $subject){
+    // A,B,Cから、対辺a,b,cに対する高さを取得します
+    private function getHighSubject(string $subject){
         $this->high[$subject] = (2 * $this->surface) / $this->{$subject};
     }
     private function getHighs(){
-        $this->getHigh('a');
-        $this->getHigh('b');
-        $this->getHigh('c');
+        $this->getHighSubject('a');
+        $this->getHighSubject('b');
+        $this->getHighSubject('c');
     }
     private function getAngles()
     {

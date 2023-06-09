@@ -8,6 +8,7 @@ use Math\Util\Validator;
 class template
 {
     private Validator $validator;
+    private bool $error = false;
     public function __construct()
     {
         $this->validator = new Validator;
@@ -21,6 +22,8 @@ class template
             return $e->getMessage();
         }
     }
+
+    // ------------------------private functions
     private function validation()
     {
     }

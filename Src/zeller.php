@@ -7,11 +7,9 @@ use Math\Util\Validator;
 
 class Zeller
 {
-    public int $y;
-    public int $m;
-    public int $d;
-    public int $h;
+    private int $y, $m, $d, $h;
     private Validator $validator;
+    private bool $error = false;
     public function __construct()
     {
         $this->validator = new Validator;
@@ -33,11 +31,19 @@ class Zeller
             $this->h %= 7;
             return $this;
         } catch (Exception $e) {
-            return $e->getMessage();
+            $this->error = true;
+            echo $e->getMessage();
+            return $this;
         }
     }
-
-    public function getDate($locale)
+    public function getZeller()
+    {
+        if($this->error){
+            return;
+        }
+        return $this->h;
+    }
+    public function getDate($locale = 'ja')
     {
         $date_array = [
             'jp' => [
@@ -52,6 +58,8 @@ class Zeller
         ];
         return $date_array[$locale][$this->h];
     }
+
+    // ------------------------private functions
     private function validation()
     {
         $m_valid = [
