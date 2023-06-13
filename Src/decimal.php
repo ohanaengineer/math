@@ -55,7 +55,7 @@ class Decimal
     }
 
     /**
-     * Undocumented function
+     * calc
      *
      * @param integer|string $val 変換したい値
      * @param integer $to 変換先の進数(default:2進数)
