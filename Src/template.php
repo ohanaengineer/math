@@ -14,6 +14,11 @@ class template
         $this->validator = new Validator;
     }
 
+    /**
+     * calc
+     *
+     * @return void
+     */
     public function calc()
     {
         try {
