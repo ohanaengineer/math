@@ -16,8 +16,6 @@ class template
 
     /**
      * calc
-     *
-     * @return void
      */
     public function calc()
     {

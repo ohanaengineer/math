@@ -6,6 +6,9 @@ use Exception;
 use Math\Util\Validator;
 use Math\Heron;
 
+/**
+ * 三角関数
+ */
 class Triangle
 {
     private Validator $validator;

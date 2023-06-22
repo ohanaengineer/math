@@ -18,15 +18,19 @@ echo (new Zeller)->calc(2022,4,14)->getZeller();
 - [1. Decimal 進数変換](#1-decimal-進数変換)
   - [calc](#calc)
   - [getDecimal](#getdecimal)
+- [e](#e)
+- [1.Eratosthenes エラトステネスん篩](#1eratosthenes-エラトステネスん篩)
+  - [calc](#calc-1)
+  - [getEratosthenes](#geteratosthenes)
 - [h](#h)
 - [1.　Heron ヘロンの公式](#1heron-ヘロンの公式)
-  - [calc](#calc-1)
+  - [calc](#calc-2)
   - [getHeron](#getheron)
   - [getAngle](#getangle)
   - [getHigh](#gethigh)
 - [t](#t)
 - [1. Triangle 三角関数](#1-triangle-三角関数)
-  - [calc](#calc-2)
+  - [calc](#calc-3)
   - [getTriangle](#gettriangle)
   - [getRad](#getrad)
   - [getCos](#getcos)
@@ -34,11 +38,11 @@ echo (new Zeller)->calc(2022,4,14)->getZeller();
   - [getTan](#gettan)
 - [p](#p)
 - [1. Prime 素数判定](#1-prime-素数判定)
-  - [calc](#calc-3)
+  - [calc](#calc-4)
   - [getPrime](#getprime)
 - [z](#z)
 - [1. Zeller ツェラーの公式](#1-zeller-ツェラーの公式)
-  - [calc](#calc-4)
+  - [calc](#calc-5)
   - [getZeller](#getzeller)
   - [getDate(今のところ日本語のみ対応)](#getdate今のところ日本語のみ対応)
 
@@ -51,6 +55,13 @@ n進数の任意の数値、文字からm進数に変換します
   - from 初期値 10(進数)
 ## getDecimal
 - 戻り値 : 変換後の数値・文字列
+
+# e
+# 1.Eratosthenes エラトステネスん篩
+## calc
+- 引数 : 自然数
+## getEratosthenes
+- 戻り値 : セットした自然数までの間に存在する素数配列
 
 # h
 # 1.　Heron ヘロンの公式

@@ -5,7 +5,10 @@ namespace Math;
 use Exception;
 use Math\Util\Validator;
 
-class heron
+/**
+ * ヘロンの公式
+ */
+class Heron
 {
     private Validator $validator;
     private int|float $surface, $a, $b, $c;

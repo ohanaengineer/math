@@ -5,7 +5,10 @@ namespace Math;
 use Exception;
 use Math\Util\Validator;
 
-class prime
+/**
+ * 素数判定
+ */
+class Prime
 {
     private Validator $validator;
     private bool $check;

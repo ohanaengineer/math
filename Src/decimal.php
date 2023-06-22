@@ -5,6 +5,9 @@ namespace Math;
 use Exception;
 use Math\Util\Validator;
 
+/**
+ * 進数変換
+ */
 class Decimal
 {
     private Validator $validator;
@@ -60,7 +63,6 @@ class Decimal
      * @param integer|string $val 変換したい値
      * @param integer $to 変換先の進数(default:2進数)
      * @param integer $from 変換元の進数(default:10進数)
-     * @return void
      */
     public function calc(int|string $val, int $to = 2, int $from = 10)
     {
@@ -82,6 +84,7 @@ class Decimal
         }
         return $this;
     }
+
     public function getDecimal(){
         if($this->error){
             return;

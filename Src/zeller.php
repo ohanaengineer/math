@@ -5,6 +5,9 @@ namespace Math;
 use Exception;
 use Math\Util\Validator;
 
+/**
+ * ツェラーの公式
+ */
 class Zeller
 {
     private int $y, $m, $d, $h;

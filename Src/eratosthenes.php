@@ -5,28 +5,35 @@ namespace Math;
 use Exception;
 use Math\Util\Validator;
 
-class Divisor
+/**
+ * エラトステネスの篩
+ */
+class Eratosthenes
 {
     private Validator $validator;
     private bool $error = false;
+    private array $num;
     public function __construct()
     {
         $this->validator = new Validator;
     }
 
+    /**
+     * calc
+     */
     public function calc(int|float $n)
     {
         try {
             $this->validation();
-            $i = 1;
-            $result[] = 1;
-
+            // 2からnまでの配列を作ります
+            $this->num = array_fill(2, $n-1, 1);
             for ($i = 2; $i * $i <= $n; $i++) {
-                if ($n % $i === 0) {
-                    return false;
+                $m = 2;
+                while ($i * $m <= $n){
+                    unset($this->num[$i * $m]);
+                    $m += 1;
                 }
             }
-            return $this;
         } catch (Exception $e) {
             $this->error = true;
             echo $e->getMessage();
@@ -34,6 +41,9 @@ class Divisor
         return $this;
     }
 
+    public function getEratosthenes(){
+        return array_keys($this->num);
+    }
     // ------------------------private functions
     private function validation()
     {
