@@ -14,11 +14,11 @@ echo (new Zeller)->calc(2022,4,14)->getZeller();
 ```
 
 # 目次 <!-- omit in toc -->
-- [d](#d)
+- [D](#d)
 - [1. Decimal 進数変換](#1-decimal-進数変換)
   - [calc](#calc)
   - [getDecimal](#getdecimal)
-- [e](#e)
+- [E](#e)
 - [1.Eratosthenes エラトステネスん篩](#1eratosthenes-エラトステネスん篩)
   - [calc](#calc-1)
   - [getEratosthenes](#geteratosthenes)
@@ -28,7 +28,7 @@ echo (new Zeller)->calc(2022,4,14)->getZeller();
   - [getHeron](#getheron)
   - [getAngle](#getangle)
   - [getHigh](#gethigh)
-- [t](#t)
+- [T](#t)
 - [1. Triangle 三角関数](#1-triangle-三角関数)
   - [calc](#calc-3)
   - [getTriangle](#gettriangle)
@@ -36,17 +36,21 @@ echo (new Zeller)->calc(2022,4,14)->getZeller();
   - [getCos](#getcos)
   - [getSin](#getsin)
   - [getTan](#gettan)
-- [p](#p)
+- [P](#p)
 - [1. Prime 素数判定](#1-prime-素数判定)
   - [calc](#calc-4)
   - [getPrime](#getprime)
-- [z](#z)
-- [1. Zeller ツェラーの公式](#1-zeller-ツェラーの公式)
+- [R](#r)
+- [1. Root 冪乗根](#1-root-冪乗根)
   - [calc](#calc-5)
+  - [getRoot](#getroot)
+- [Z](#z)
+- [1. Zeller ツェラーの公式](#1-zeller-ツェラーの公式)
+  - [calc](#calc-6)
   - [getZeller](#getzeller)
   - [getDate(今のところ日本語のみ対応)](#getdate今のところ日本語のみ対応)
 
-# d
+# D
 # 1. Decimal 進数変換
 n進数の任意の数値、文字からm進数に変換します
 ## calc
@@ -56,7 +60,7 @@ n進数の任意の数値、文字からm進数に変換します
 ## getDecimal
 - 戻り値 : 変換後の数値・文字列
 
-# e
+# E
 # 1.Eratosthenes エラトステネスん篩
 ## calc
 - 引数 : 自然数
@@ -76,7 +80,7 @@ n進数の任意の数値、文字からm進数に変換します
 - 引数 : 角(A,B,C) もしくは辺(a,b,c)
 - 戻り値 : A,B,Cから対角 もしくは辺a,b,cから対辺までの高さ
 
-# t
+# T
 # 1. Triangle 三角関数
 ## calc
 - 引数 : 1.辺a 2.辺b 3.辺c
@@ -97,7 +101,7 @@ n進数の任意の数値、文字からm進数に変換します
 - 戻り値 : 各tanの値
   - ただし、角A,B,Cが90の倍数角の場合はException
 
-# p
+# P
 # 1. Prime 素数判定
 ## calc
 - 引数 : n (2以上の自然数)
@@ -105,7 +109,14 @@ n進数の任意の数値、文字からm進数に変換します
 - 引数 : なし
 - 戻り値 : bool (nが素数か否か)
 
-# z
+# R
+# 1. Root 冪乗根
+## calc
+- 引数 : 1.n 2.x (nのx乗根 としたとき)
+## getRoot
+- 戻り値 : nのx乗根の値
+
+# Z
 # 1. Zeller ツェラーの公式
 y年 m月 d日 の値から、曜日を返します。
 ## calc
