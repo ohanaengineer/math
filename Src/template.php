@@ -5,7 +5,7 @@ namespace Math;
 use Exception;
 use Math\Util\Validator;
 
-class template
+class Template
 {
     private Validator $validator;
     private bool $error = false;
