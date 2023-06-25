@@ -19,7 +19,7 @@ class Heron
         $this->validator = new Validator;
     }
 
-    public function calc(int|float $a, int|float $b, int|float $c)
+    public function set(int|float $a, int|float $b, int|float $c)
     {
         [$this->a, $this->b, $this->c] = [$a, $b, $c];
         try {
@@ -33,38 +33,41 @@ class Heron
         }
         return $this;
     }
-    public function getHeron(){
-        if($this->error){
+    public function getHeron()
+    {
+        if ($this->error) {
             return;
         }
         return $this->surface;
     }
 
-    public function getHigh(string $side){
-        if($this->error){
+    public function getHigh(string $side)
+    {
+        if ($this->error) {
             return;
         }
-        try{
-            if(!in_array($side,['a','b','c'])){
+        try {
+            if (!in_array($side, ['a', 'b', 'c'])) {
                 throw new Exception('辺はa,b,cしかありません');
             }
             return $this->high[$side];
-        }catch(Exception $e){
+        } catch (Exception $e) {
             echo $e->getMessage();
             return $this;
         }
     }
-    public function getAngle(string $angle){
-        if($this->error){
+    public function getAngle(string $angle)
+    {
+        if ($this->error) {
             return;
         }
         $angle = mb_strtoupper($angle);
-        try{
-            if(!in_array($angle,['A','B','C'])){
+        try {
+            if (!in_array($angle, ['A', 'B', 'C'])) {
                 throw new Exception('角はA,B,Cしかありません');
             }
             return $this->angles[$angle];
-        }catch(Exception $e){
+        } catch (Exception $e) {
             return $e->getPrevious();
         }
     }
@@ -78,10 +81,12 @@ class Heron
     }
     // $subject = 'a' or 'b' or 'c'
     // A,B,Cから、対辺a,b,cに対する高さを取得します
-    private function getHighSubject(string $subject){
+    private function getHighSubject(string $subject)
+    {
         $this->high[$subject] = (2 * $this->surface) / $this->{$subject};
     }
-    private function getHighs(){
+    private function getHighs()
+    {
         $this->getHighSubject('a');
         $this->getHighSubject('b');
         $this->getHighSubject('c');

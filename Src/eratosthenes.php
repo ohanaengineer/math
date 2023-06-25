@@ -19,17 +19,17 @@ class Eratosthenes
     }
 
     /**
-     * calc
+     * set
      */
-    public function calc(int|float $n)
+    public function set(int|float $n)
     {
         try {
             $this->validation();
             // 2からnまでの配列を作ります
-            $this->num = array_fill(2, $n-1, 1);
+            $this->num = array_fill(2, $n - 1, 1);
             for ($i = 2; $i * $i <= $n; $i++) {
                 $m = 2;
-                while ($i * $m <= $n){
+                while ($i * $m <= $n) {
                     unset($this->num[$i * $m]);
                     $m += 1;
                 }
@@ -41,7 +41,8 @@ class Eratosthenes
         return $this;
     }
 
-    public function getEratosthenes(){
+    public function getEratosthenes()
+    {
         return array_keys($this->num);
     }
     // ------------------------private functions

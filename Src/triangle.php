@@ -18,12 +18,12 @@ class Triangle
     {
         $this->validator = new Validator;
     }
-    public function calc(int $a, int $b, int $c)
+    public function set(int $a, int $b, int $c)
     {
         [$this->a, $this->b, $this->c] = [$a, $b, $c];
         try {
             $this->validation();
-            $heron = (new Heron)->calc($a, $b, $c);
+            $heron = (new Heron)->set($a, $b, $c);
             $this->A = $heron->getAngle('A');
             $this->B = $heron->getAngle('B');
             $this->C = $heron->getAngle('C');
@@ -33,22 +33,23 @@ class Triangle
         }
         return $this;
     }
-    public function getTriangle(string $side){
-        if($this->error){
+    public function getTriangle(string $side)
+    {
+        if ($this->error) {
             return;
         }
         return $this->{$side};
     }
     public function getCos(string $side)
     {
-        if($this->error){
+        if ($this->error) {
             return;
         }
         return cos($this->{$side});
     }
     public function getSin(string $side)
     {
-        if($this->error){
+        if ($this->error) {
             return;
         }
         return sin($this->{$side});
@@ -66,7 +67,7 @@ class Triangle
     }
     public function getRad(string $side)
     {
-        if($this->error){
+        if ($this->error) {
             return;
         }
         return deg2rad($this->{$side});

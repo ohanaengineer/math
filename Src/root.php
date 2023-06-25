@@ -15,10 +15,10 @@ class Root
     }
 
     /**
-     * calc
+     * set
      */
     private $root;
-    public function calc(int $n, int $x)
+    public function set(int $n, int $x)
     {
         try {
             $this->validation();
@@ -30,7 +30,8 @@ class Root
         return $this;
     }
 
-    public function getRoot(){
+    public function getRoot()
+    {
         return $this->root;
     }
     // ------------------------private functions

@@ -15,9 +15,9 @@ class Template
     }
 
     /**
-     * calc
+     * set
      */
-    public function calc()
+    public function set()
     {
         try {
             $this->validation();

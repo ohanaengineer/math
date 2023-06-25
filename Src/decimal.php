@@ -58,13 +58,13 @@ class Decimal
     }
 
     /**
-     * calc
+     * set
      *
      * @param integer|string $val 変換したい値
      * @param integer $to 変換先の進数(default:2進数)
      * @param integer $from 変換元の進数(default:10進数)
      */
-    public function calc(int|string $val, int $to = 2, int $from = 10)
+    public function set(int|string $val, int $to = 2, int $from = 10)
     {
         [$this->v, $this->t, $this->f] = [$val, $to, $from];
         try {
@@ -85,13 +85,14 @@ class Decimal
         return $this;
     }
 
-    public function getDecimal(){
-        if($this->error){
+    public function getDecimal()
+    {
+        if ($this->error) {
             return;
         }
-        try{
+        try {
             return $this->v;
-        }catch(Exception $e){
+        } catch (Exception $e) {
             return $e->getMessage();
         }
     }

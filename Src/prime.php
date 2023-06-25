@@ -18,7 +18,7 @@ class Prime
         $this->validator = new Validator;
     }
 
-    public function calc(int|float $n)
+    public function set(int|float $n)
     {
         try {
             $this->validation();
@@ -40,8 +40,9 @@ class Prime
         }
         return $this;
     }
-    public function getPrime(){
-        if($this->error){
+    public function getPrime()
+    {
+        if ($this->error) {
             return;
         }
         return $this->check;

@@ -17,7 +17,7 @@ class Zeller
     {
         $this->validator = new Validator;
     }
-    public function calc(int $y, int $m, int $d)
+    public function set(int $y, int $m, int $d)
     {
         $this->y = $y;
         $this->m = $m;
@@ -40,7 +40,7 @@ class Zeller
     }
     public function getZeller()
     {
-        if($this->error){
+        if ($this->error) {
             return;
         }
         return $this->h;
