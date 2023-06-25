@@ -24,13 +24,15 @@ class Zeller
         $this->d = $d;
         try {
             $this->validation();
-            $Y = substr($y, -2);
+            // 1,2月の場合は13,14月とする必要がある
+            $this->m = $m < 3 ? $m + 12 : $m;
+            $Y = substr($this->y, -2);
             $this->h =
-                $Y + $d +
+                $Y + $this->d +
                 floor($Y / 4) -
-                floor($y / 100) * 2 +
-                floor($y / 400) +
-                floor(26 * ($m + 1) / 10);
+                floor($this->y / 100) * 2 +
+                floor($this->y / 400) +
+                floor(26 * ($this->m + 1) / 10);
             $this->h %= 7;
         } catch (Exception $e) {
             $this->error = true;
