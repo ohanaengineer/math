@@ -22,7 +22,7 @@ echo (new Zeller)->set(2022,4,14)->getZeller();
 - [1.Eratosthenes エラトステネスん篩](#1eratosthenes-エラトステネスん篩)
   - [set](#set-1)
   - [getEratosthenes](#geteratosthenes)
-- [h](#h)
+- [H](#h)
 - [1.　Heron ヘロンの公式](#1heron-ヘロンの公式)
   - [set](#set-2)
   - [getHeron](#getheron)
@@ -31,9 +31,14 @@ echo (new Zeller)->set(2022,4,14)->getZeller();
 - [2. Holiday 年間休日算出](#2-holiday-年間休日算出)
   - [set](#set-3)
   - [getHoliday](#getholiday)
+- [I](#i)
+- [1. Interest 利息計算](#1-interest-利息計算)
+  - [set](#set-4)
+  - [getInterest](#getinterest)
+  - [getHistory](#gethistory)
 - [T](#t)
 - [1. Triangle 三角関数](#1-triangle-三角関数)
-  - [set](#set-4)
+  - [set](#set-5)
   - [getTriangle](#gettriangle)
   - [getRad](#getrad)
   - [getCos](#getcos)
@@ -41,15 +46,15 @@ echo (new Zeller)->set(2022,4,14)->getZeller();
   - [getTan](#gettan)
 - [P](#p)
 - [1. Prime 素数判定](#1-prime-素数判定)
-  - [set](#set-5)
+  - [set](#set-6)
   - [getPrime](#getprime)
 - [R](#r)
 - [1. Root 冪乗根](#1-root-冪乗根)
-  - [set](#set-6)
+  - [set](#set-7)
   - [getRoot](#getroot)
 - [Z](#z)
 - [1. Zeller ツェラーの公式](#1-zeller-ツェラーの公式)
-  - [set](#set-7)
+  - [set](#set-8)
   - [getZeller](#getzeller)
   - [getDate(今のところ日本語のみ対応)](#getdate今のところ日本語のみ対応)
 
@@ -72,7 +77,7 @@ n進数の任意の数値、文字からm進数に変換します
 - 引数 : なし
 - 戻り値 : セットした自然数までの間に存在する素数配列
 
-# h
+# H
 # 1.　Heron ヘロンの公式
 ## set
 - 引数 : 1.辺a 2.辺b 3.辺c
@@ -96,6 +101,17 @@ n進数の任意の数値、文字からm進数に変換します
 ## getHoliday
 - 引数 : なし
 - 戻り値 : 指定した条件から算出した休日日数
+
+# I
+# 1. Interest 利息計算
+## set
+- 引数 1.年数 2.元本 3.利率
+## getInterest
+- 引数 1.true:単利 false:複利
+- 戻り値 元本・金利・年数で計算した値
+## getHistory
+- 引数 1.true:単利 false:複利
+- 戻り値 1年目から、年数までの元本推移
 
 # T
 # 1. Triangle 三角関数
