@@ -9,6 +9,7 @@ class Template
 {
     private Validator $validator;
     private bool $error = false;
+    private $result;
     public function __construct()
     {
         $this->validator = new Validator;
@@ -28,6 +29,12 @@ class Template
         return $this;
     }
 
+    public function get(){
+        if ($this->error) {
+            return;
+        }
+        return $this->result;
+    }
     // ------------------------private functions
     private function validation()
     {
